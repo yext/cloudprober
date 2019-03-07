@@ -21,14 +21,14 @@ import (
 	"testing"
 
 	"github.com/golang/protobuf/proto"
-	"github.com/google/cloudprober/logger"
-	"github.com/google/cloudprober/metrics"
-	"github.com/google/cloudprober/probes"
-	"github.com/google/cloudprober/probes/options"
-	"github.com/google/cloudprober/probes/probeutils"
-	configpb "github.com/google/cloudprober/probes/proto"
-	testdatapb "github.com/google/cloudprober/probes/testdata"
-	targetspb "github.com/google/cloudprober/targets/proto"
+	"github.com/yext/cloudprober/logger"
+	"github.com/yext/cloudprober/metrics"
+	"github.com/yext/cloudprober/probes"
+	"github.com/yext/cloudprober/probes/options"
+	"github.com/yext/cloudprober/probes/probeutils"
+	configpb "github.com/yext/cloudprober/probes/proto"
+	testdatapb "github.com/yext/cloudprober/probes/testdata"
+	targetspb "github.com/yext/cloudprober/targets/proto"
 )
 
 var testProbeIntialized int

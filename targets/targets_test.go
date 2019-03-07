@@ -22,10 +22,10 @@ import (
 	"testing"
 
 	"github.com/golang/protobuf/proto"
-	"github.com/google/cloudprober/logger"
-	"github.com/google/cloudprober/targets"
-	targetspb "github.com/google/cloudprober/targets/proto"
-	testdatapb "github.com/google/cloudprober/targets/testdata"
+	"github.com/yext/cloudprober/logger"
+	"github.com/yext/cloudprober/targets"
+	targetspb "github.com/yext/cloudprober/targets/proto"
+	testdatapb "github.com/yext/cloudprober/targets/testdata"
 )
 
 // getMissing returns a list of items in "elems" missing from "from". Cannot

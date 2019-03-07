@@ -26,12 +26,12 @@ import (
 	"time"
 
 	"cloud.google.com/go/compute/metadata"
-	"github.com/google/cloudprober/logger"
+	"github.com/yext/cloudprober/logger"
 	"golang.org/x/oauth2/google"
 	monitoring "google.golang.org/api/monitoring/v3"
 
-	"github.com/google/cloudprober/metrics"
-	configpb "github.com/google/cloudprober/surfacers/stackdriver/proto"
+	"github.com/yext/cloudprober/metrics"
+	configpb "github.com/yext/cloudprober/surfacers/stackdriver/proto"
 )
 
 //-----------------------------------------------------------------------------

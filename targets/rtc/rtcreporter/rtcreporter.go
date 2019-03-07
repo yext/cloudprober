@@ -29,9 +29,9 @@ import (
 	"time"
 
 	"github.com/golang/protobuf/proto"
-	"github.com/google/cloudprober/logger"
-	rpb "github.com/google/cloudprober/targets/rtc/rtcreporter/proto"
-	"github.com/google/cloudprober/targets/rtc/rtcservice"
+	"github.com/yext/cloudprober/logger"
+	rpb "github.com/yext/cloudprober/targets/rtc/rtcreporter/proto"
+	"github.com/yext/cloudprober/targets/rtc/rtcservice"
 )
 
 // Reporter provides the means and configuration for a cloudprober instance to

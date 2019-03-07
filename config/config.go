@@ -118,7 +118,7 @@ import (
 
 	"cloud.google.com/go/compute/metadata"
 	"github.com/golang/protobuf/proto"
-	configpb "github.com/google/cloudprober/config/proto"
+	configpb "github.com/yext/cloudprober/config/proto"
 )
 
 // ReadFromGCEMetadata reads the config from the GCE metadata. To allow for

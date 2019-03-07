@@ -6,9 +6,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/google/cloudprober/logger"
-	"github.com/google/cloudprober/metrics"
-	"github.com/google/cloudprober/probes/options"
+	"github.com/yext/cloudprober/logger"
+	"github.com/yext/cloudprober/metrics"
+	"github.com/yext/cloudprober/probes/options"
 	"github.com/hoisie/redis"
 )
 

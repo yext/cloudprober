@@ -24,10 +24,10 @@ import (
 	"time"
 
 	"github.com/golang/protobuf/proto"
-	"github.com/google/cloudprober/metrics"
-	configpb "github.com/google/cloudprober/probes/http/proto"
-	"github.com/google/cloudprober/probes/options"
-	"github.com/google/cloudprober/targets"
+	"github.com/yext/cloudprober/metrics"
+	configpb "github.com/yext/cloudprober/probes/http/proto"
+	"github.com/yext/cloudprober/probes/options"
+	"github.com/yext/cloudprober/targets"
 )
 
 // The Transport is mocked instead of the Client because Client is not an

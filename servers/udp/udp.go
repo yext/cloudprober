@@ -23,9 +23,9 @@ import (
 	"io"
 	"net"
 
-	"github.com/google/cloudprober/logger"
-	"github.com/google/cloudprober/metrics"
-	configpb "github.com/google/cloudprober/servers/udp/proto"
+	"github.com/yext/cloudprober/logger"
+	"github.com/yext/cloudprober/metrics"
+	configpb "github.com/yext/cloudprober/servers/udp/proto"
 )
 
 const (

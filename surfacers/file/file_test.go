@@ -32,9 +32,9 @@ import (
 	"github.com/golang/protobuf/proto"
 	"github.com/kylelemons/godebug/pretty"
 
-	"github.com/google/cloudprober/logger"
-	"github.com/google/cloudprober/metrics"
-	configpb "github.com/google/cloudprober/surfacers/file/proto"
+	"github.com/yext/cloudprober/logger"
+	"github.com/yext/cloudprober/metrics"
+	configpb "github.com/yext/cloudprober/surfacers/file/proto"
 )
 
 func TestWrite(t *testing.T) {

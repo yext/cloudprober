@@ -24,8 +24,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/google/cloudprober/metrics"
-	configpb "github.com/google/cloudprober/probes/external/proto"
+	"github.com/yext/cloudprober/metrics"
+	configpb "github.com/yext/cloudprober/probes/external/proto"
 )
 
 func (p *Probe) initPayloadMetrics() error {

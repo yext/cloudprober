@@ -30,16 +30,16 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/google/cloudprober/logger"
-	"github.com/google/cloudprober/metrics"
-	"github.com/google/cloudprober/surfacers/file"
-	"github.com/google/cloudprober/surfacers/postgres"
-	"github.com/google/cloudprober/surfacers/prometheus"
-	"github.com/google/cloudprober/surfacers/stackdriver"
-	"github.com/google/cloudprober/web/formatutils"
+	"github.com/yext/cloudprober/logger"
+	"github.com/yext/cloudprober/metrics"
+	"github.com/yext/cloudprober/surfacers/file"
+	"github.com/yext/cloudprober/surfacers/postgres"
+	"github.com/yext/cloudprober/surfacers/prometheus"
+	"github.com/yext/cloudprober/surfacers/stackdriver"
+	"github.com/yext/cloudprober/web/formatutils"
 
-	surfacerpb "github.com/google/cloudprober/surfacers/proto"
-	surfacerspb "github.com/google/cloudprober/surfacers/proto"
+	surfacerpb "github.com/yext/cloudprober/surfacers/proto"
+	surfacerspb "github.com/yext/cloudprober/surfacers/proto"
 )
 
 var (
@@ -198,8 +198,8 @@ func Init(sDefs []*surfacerpb.SurfacerDef) ([]*SurfacerInfo, error) {
 // Register allows you to register a user defined surfacer with cloudprober.
 // Example usage:
 //	import (
-//		"github.com/google/cloudprober"
-//		"github.com/google/cloudprober/surfacers"
+//		"github.com/yext/cloudprober"
+//		"github.com/yext/cloudprober/surfacers"
 //	)
 //
 //	s := &FancySurfacer{}

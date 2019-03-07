@@ -20,8 +20,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/google/cloudprober/logger"
-	"github.com/google/cloudprober/metrics"
+	"github.com/yext/cloudprober/logger"
+	"github.com/yext/cloudprober/metrics"
 )
 
 // probeRunResult captures the results of a single probe run. The way we work with

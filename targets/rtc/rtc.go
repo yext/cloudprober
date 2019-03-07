@@ -24,10 +24,10 @@ import (
 	"time"
 
 	"github.com/golang/protobuf/proto"
-	"github.com/google/cloudprober/logger"
-	configpb "github.com/google/cloudprober/targets/rtc/proto"
-	cpb "github.com/google/cloudprober/targets/rtc/rtcreporter/proto"
-	"github.com/google/cloudprober/targets/rtc/rtcservice"
+	"github.com/yext/cloudprober/logger"
+	configpb "github.com/yext/cloudprober/targets/rtc/proto"
+	cpb "github.com/yext/cloudprober/targets/rtc/rtcreporter/proto"
+	"github.com/yext/cloudprober/targets/rtc/rtcservice"
 	runtimeconfig "google.golang.org/api/runtimeconfig/v1beta1"
 )
 

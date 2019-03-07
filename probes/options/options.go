@@ -22,14 +22,14 @@ import (
 	"net"
 	"time"
 
-	"github.com/google/cloudprober/logger"
-	"github.com/google/cloudprober/metrics"
-	"github.com/google/cloudprober/probes/probeutils"
-	configpb "github.com/google/cloudprober/probes/proto"
-	"github.com/google/cloudprober/targets"
-	"github.com/google/cloudprober/targets/lameduck"
-	targetspb "github.com/google/cloudprober/targets/proto"
-	"github.com/google/cloudprober/validators"
+	"github.com/yext/cloudprober/logger"
+	"github.com/yext/cloudprober/metrics"
+	"github.com/yext/cloudprober/probes/probeutils"
+	configpb "github.com/yext/cloudprober/probes/proto"
+	"github.com/yext/cloudprober/targets"
+	"github.com/yext/cloudprober/targets/lameduck"
+	targetspb "github.com/yext/cloudprober/targets/proto"
+	"github.com/yext/cloudprober/validators"
 )
 
 // Options encapsulates common probe options.

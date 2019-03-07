@@ -24,12 +24,12 @@ import (
 	"fmt"
 	"net"
 
-	"github.com/google/cloudprober/logger"
-	"github.com/google/cloudprober/metrics"
-	pb "github.com/google/cloudprober/targets/rds/proto"
-	spb "github.com/google/cloudprober/targets/rds/proto"
-	"github.com/google/cloudprober/targets/rds/server/gcp"
-	configpb "github.com/google/cloudprober/targets/rds/server/proto"
+	"github.com/yext/cloudprober/logger"
+	"github.com/yext/cloudprober/metrics"
+	pb "github.com/yext/cloudprober/targets/rds/proto"
+	spb "github.com/yext/cloudprober/targets/rds/proto"
+	"github.com/yext/cloudprober/targets/rds/server/gcp"
+	configpb "github.com/yext/cloudprober/targets/rds/server/proto"
 	"google.golang.org/grpc"
 )
 

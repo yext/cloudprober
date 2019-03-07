@@ -17,7 +17,7 @@ package regex
 import (
 	"testing"
 
-	"github.com/google/cloudprober/logger"
+	"github.com/yext/cloudprober/logger"
 )
 
 func TestInvalidConfig(t *testing.T) {

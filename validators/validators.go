@@ -19,11 +19,11 @@ package validators
 import (
 	"fmt"
 
-	"github.com/google/cloudprober/logger"
-	"github.com/google/cloudprober/validators/http"
-	"github.com/google/cloudprober/validators/integrity"
-	configpb "github.com/google/cloudprober/validators/proto"
-	"github.com/google/cloudprober/validators/regex"
+	"github.com/yext/cloudprober/logger"
+	"github.com/yext/cloudprober/validators/http"
+	"github.com/yext/cloudprober/validators/integrity"
+	configpb "github.com/yext/cloudprober/validators/proto"
+	"github.com/yext/cloudprober/validators/regex"
 )
 
 // Validator interface represents a validator.

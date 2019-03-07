@@ -25,19 +25,19 @@ import (
 	"sync"
 
 	"github.com/golang/protobuf/proto"
-	"github.com/google/cloudprober/logger"
-	"github.com/google/cloudprober/metrics"
-	"github.com/google/cloudprober/probes/dns"
-	"github.com/google/cloudprober/probes/external"
-	httpprobe "github.com/google/cloudprober/probes/http"
-	"github.com/google/cloudprober/probes/options"
-	"github.com/google/cloudprober/probes/ping"
-	configpb "github.com/google/cloudprober/probes/proto"
-	"github.com/google/cloudprober/probes/udp"
-	"github.com/google/cloudprober/probes/udplistener"
-	"github.com/google/cloudprober/targets/lameduck"
-	targetspb "github.com/google/cloudprober/targets/proto"
-	"github.com/google/cloudprober/web/formatutils"
+	"github.com/yext/cloudprober/logger"
+	"github.com/yext/cloudprober/metrics"
+	"github.com/yext/cloudprober/probes/dns"
+	"github.com/yext/cloudprober/probes/external"
+	httpprobe "github.com/yext/cloudprober/probes/http"
+	"github.com/yext/cloudprober/probes/options"
+	"github.com/yext/cloudprober/probes/ping"
+	configpb "github.com/yext/cloudprober/probes/proto"
+	"github.com/yext/cloudprober/probes/udp"
+	"github.com/yext/cloudprober/probes/udplistener"
+	"github.com/yext/cloudprober/targets/lameduck"
+	targetspb "github.com/yext/cloudprober/targets/proto"
+	"github.com/yext/cloudprober/web/formatutils"
 )
 
 var (
@@ -221,8 +221,8 @@ func initProbe(p *configpb.ProbeDef, opts *options.Options) (probe Probe, probeC
 // cloudprober.
 // Example usage:
 //	import (
-//		"github.com/google/cloudprober"
-//		"github.com/google/cloudprober/probes"
+//		"github.com/yext/cloudprober"
+//		"github.com/yext/cloudprober/probes"
 //	)
 //
 //	p := &FancyProbe{}

@@ -19,11 +19,11 @@ import (
 	"testing"
 
 	"github.com/golang/protobuf/proto"
-	"github.com/google/cloudprober/logger"
-	configpb "github.com/google/cloudprober/targets/rds/client/proto"
-	pb "github.com/google/cloudprober/targets/rds/proto"
-	"github.com/google/cloudprober/targets/rds/server"
-	serverpb "github.com/google/cloudprober/targets/rds/server/proto"
+	"github.com/yext/cloudprober/logger"
+	configpb "github.com/yext/cloudprober/targets/rds/client/proto"
+	pb "github.com/yext/cloudprober/targets/rds/proto"
+	"github.com/yext/cloudprober/targets/rds/server"
+	serverpb "github.com/yext/cloudprober/targets/rds/server/proto"
 )
 
 type testProvider struct {

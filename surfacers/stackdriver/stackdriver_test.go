@@ -19,8 +19,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/google/cloudprober/logger"
-	"github.com/google/cloudprober/metrics"
+	"github.com/yext/cloudprober/logger"
+	"github.com/yext/cloudprober/metrics"
 	"github.com/kylelemons/godebug/pretty"
 	monitoring "google.golang.org/api/monitoring/v3"
 )

@@ -22,7 +22,7 @@ import (
 	"regexp"
 	"time"
 
-	"github.com/google/cloudprober/logger"
+	"github.com/yext/cloudprober/logger"
 )
 
 // RegexFilter implements a regex based filter.

@@ -35,9 +35,9 @@ import (
 	"strings"
 
 	"cloud.google.com/go/compute/metadata"
-	"github.com/google/cloudprober/logger"
-	pb "github.com/google/cloudprober/targets/rds/proto"
-	configpb "github.com/google/cloudprober/targets/rds/server/gcp/proto"
+	"github.com/yext/cloudprober/logger"
+	pb "github.com/yext/cloudprober/targets/rds/proto"
+	configpb "github.com/yext/cloudprober/targets/rds/server/gcp/proto"
 )
 
 // Provider implements a GCP provider for a ResourceDiscovery server.

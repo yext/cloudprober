@@ -3,8 +3,8 @@
 package sysvars
 
 import (
-	"github.com/google/cloudprober/logger"
-	"github.com/google/cloudprober/metrics"
+	"github.com/yext/cloudprober/logger"
+	"github.com/yext/cloudprober/metrics"
 )
 
 // osRuntimeVars doesn't anything for the non-Linux systems yet. We have it

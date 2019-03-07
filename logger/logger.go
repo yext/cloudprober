@@ -25,10 +25,11 @@ import (
 	"strings"
 	"time"
 
+	"flag"
+
 	"cloud.google.com/go/compute/metadata"
 	"cloud.google.com/go/logging"
-	"flag"
-	"github.com/golang/glog"
+	"github.com/yext/glog"
 	"golang.org/x/oauth2/google"
 	"google.golang.org/api/option"
 	monpb "google.golang.org/genproto/googleapis/api/monitoredres"
@@ -273,12 +274,12 @@ func genericLog(severity logging.Severity, s string) {
 
 	switch severity {
 	case logging.Debug, logging.Info:
-		glog.InfoDepth(depth, s)
+		glog.InfoWithDepth(depth, s)
 	case logging.Warning:
-		glog.WarningDepth(depth, s)
+		glog.WarningWithDepth(depth, s)
 	case logging.Error:
-		glog.ErrorDepth(depth, s)
+		glog.ErrorWithDepth(depth, s)
 	case logging.Critical:
-		glog.FatalDepth(depth, s)
+		glog.FatalWithDepth(depth, s)
 	}
 }
