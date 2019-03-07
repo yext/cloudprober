@@ -25,10 +25,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/google/cloudprober/logger"
-	configpb "github.com/google/cloudprober/targets/rds/client/proto"
-	pb "github.com/google/cloudprober/targets/rds/proto"
-	spb "github.com/google/cloudprober/targets/rds/proto"
+	"github.com/yext/cloudprober/logger"
+	configpb "github.com/yext/cloudprober/targets/rds/client/proto"
+	pb "github.com/yext/cloudprober/targets/rds/proto"
+	spb "github.com/yext/cloudprober/targets/rds/proto"
 	"google.golang.org/grpc"
 )
 

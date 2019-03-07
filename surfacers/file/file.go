@@ -28,10 +28,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/google/cloudprober/logger"
-	"github.com/google/cloudprober/metrics"
+	"github.com/yext/cloudprober/logger"
+	"github.com/yext/cloudprober/metrics"
 
-	configpb "github.com/google/cloudprober/surfacers/file/proto"
+	configpb "github.com/yext/cloudprober/surfacers/file/proto"
 )
 
 var (

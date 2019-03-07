@@ -25,9 +25,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/google/cloudprober/logger"
-	"github.com/google/cloudprober/metrics"
-	"github.com/google/cloudprober/targets/lameduck"
+	"github.com/yext/cloudprober/logger"
+	"github.com/yext/cloudprober/metrics"
+	"github.com/yext/cloudprober/targets/lameduck"
 )
 
 const testExportInterval = 2 * time.Second

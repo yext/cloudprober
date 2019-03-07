@@ -27,13 +27,13 @@ import (
 	"google.golang.org/grpc/health"
 	"google.golang.org/grpc/reflection"
 
-	"github.com/google/cloudprober/config/runconfig"
-	"github.com/google/cloudprober/logger"
-	"github.com/google/cloudprober/metrics"
-	"github.com/google/cloudprober/probes/probeutils"
-	configpb "github.com/google/cloudprober/servers/grpc/proto"
-	grpcpb "github.com/google/cloudprober/servers/grpc/proto"
-	spb "github.com/google/cloudprober/servers/grpc/proto"
+	"github.com/yext/cloudprober/config/runconfig"
+	"github.com/yext/cloudprober/logger"
+	"github.com/yext/cloudprober/metrics"
+	"github.com/yext/cloudprober/probes/probeutils"
+	configpb "github.com/yext/cloudprober/servers/grpc/proto"
+	grpcpb "github.com/yext/cloudprober/servers/grpc/proto"
+	spb "github.com/yext/cloudprober/servers/grpc/proto"
 	healthpb "google.golang.org/grpc/health/grpc_health_v1"
 )
 

@@ -22,12 +22,12 @@ import (
 	"context"
 
 	"github.com/golang/protobuf/proto"
-	"github.com/google/cloudprober/logger"
-	"github.com/google/cloudprober/servers/udp"
-	configpb "github.com/google/cloudprober/servers/udp/proto"
+	"github.com/yext/cloudprober/logger"
+	"github.com/yext/cloudprober/servers/udp"
+	configpb "github.com/yext/cloudprober/servers/udp/proto"
 
 	"flag"
-	"github.com/golang/glog"
+	"github.com/yext/glog"
 )
 
 var (

@@ -29,12 +29,12 @@ import (
 
 	"cloud.google.com/go/compute/metadata"
 	"github.com/golang/protobuf/proto"
-	"github.com/google/cloudprober/logger"
-	configpb "github.com/google/cloudprober/targets/lameduck/proto"
-	rdsclient "github.com/google/cloudprober/targets/rds/client"
-	rdsclient_configpb "github.com/google/cloudprober/targets/rds/client/proto"
-	rdspb "github.com/google/cloudprober/targets/rds/proto"
-	"github.com/google/cloudprober/targets/rtc/rtcservice"
+	"github.com/yext/cloudprober/logger"
+	configpb "github.com/yext/cloudprober/targets/lameduck/proto"
+	rdsclient "github.com/yext/cloudprober/targets/rds/client"
+	rdsclient_configpb "github.com/yext/cloudprober/targets/rds/client/proto"
+	rdspb "github.com/yext/cloudprober/targets/rds/proto"
+	"github.com/yext/cloudprober/targets/rtc/rtcservice"
 	runtimeconfig "google.golang.org/api/runtimeconfig/v1beta1"
 )
 

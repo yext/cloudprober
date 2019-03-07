@@ -7,12 +7,12 @@ import (
 	"os"
 
 	"cloud.google.com/go/compute/metadata"
-	"github.com/golang/glog"
-	"github.com/google/cloudprober"
-	"github.com/google/cloudprober/config"
-	"github.com/google/cloudprober/examples/extensions/myprober/myprobe"
-	"github.com/google/cloudprober/probes"
-	"github.com/google/cloudprober/web"
+	"github.com/yext/glog"
+	"github.com/yext/cloudprober"
+	"github.com/yext/cloudprober/config"
+	"github.com/yext/cloudprober/examples/extensions/myprober/myprobe"
+	"github.com/yext/cloudprober/probes"
+	"github.com/yext/cloudprober/web"
 )
 
 var (

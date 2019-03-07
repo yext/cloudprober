@@ -38,12 +38,12 @@ import (
 	"time"
 
 	"github.com/golang/protobuf/proto"
-	"github.com/google/cloudprober/logger"
-	"github.com/google/cloudprober/metrics"
-	configpb "github.com/google/cloudprober/probes/external/proto"
-	serverpb "github.com/google/cloudprober/probes/external/proto"
-	"github.com/google/cloudprober/probes/external/serverutils"
-	"github.com/google/cloudprober/probes/options"
+	"github.com/yext/cloudprober/logger"
+	"github.com/yext/cloudprober/metrics"
+	configpb "github.com/yext/cloudprober/probes/external/proto"
+	serverpb "github.com/yext/cloudprober/probes/external/proto"
+	"github.com/yext/cloudprober/probes/external/serverutils"
+	"github.com/yext/cloudprober/probes/options"
 )
 
 var (

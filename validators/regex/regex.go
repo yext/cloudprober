@@ -21,7 +21,7 @@ import (
 	"fmt"
 	"regexp"
 
-	"github.com/google/cloudprober/logger"
+	"github.com/yext/cloudprober/logger"
 )
 
 // Validator implements a regex validator.

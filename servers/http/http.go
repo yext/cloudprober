@@ -27,12 +27,12 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/google/cloudprober/logger"
-	"github.com/google/cloudprober/metrics"
-	"github.com/google/cloudprober/probes/probeutils"
-	configpb "github.com/google/cloudprober/servers/http/proto"
-	"github.com/google/cloudprober/sysvars"
-	"github.com/google/cloudprober/targets/lameduck"
+	"github.com/yext/cloudprober/logger"
+	"github.com/yext/cloudprober/metrics"
+	"github.com/yext/cloudprober/probes/probeutils"
+	configpb "github.com/yext/cloudprober/servers/http/proto"
+	"github.com/yext/cloudprober/sysvars"
+	"github.com/yext/cloudprober/targets/lameduck"
 )
 
 const statsExportInterval = 10 * time.Second

@@ -19,8 +19,8 @@ import (
 	"testing"
 
 	"github.com/golang/protobuf/proto"
-	"github.com/google/cloudprober/logger"
-	pb "github.com/google/cloudprober/targets/rds/proto"
+	"github.com/yext/cloudprober/logger"
+	pb "github.com/yext/cloudprober/targets/rds/proto"
 	compute "google.golang.org/api/compute/v1"
 )
 

@@ -27,9 +27,9 @@ import (
 	"time"
 
 	"cloud.google.com/go/compute/metadata"
-	"github.com/google/cloudprober/config/runconfig"
-	"github.com/google/cloudprober/logger"
-	"github.com/google/cloudprober/metrics"
+	"github.com/yext/cloudprober/config/runconfig"
+	"github.com/yext/cloudprober/logger"
+	"github.com/yext/cloudprober/metrics"
 )
 
 var (

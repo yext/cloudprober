@@ -21,13 +21,13 @@ import (
 	"context"
 	"html/template"
 
-	"github.com/google/cloudprober/logger"
-	"github.com/google/cloudprober/metrics"
-	"github.com/google/cloudprober/servers/grpc"
-	"github.com/google/cloudprober/servers/http"
-	configpb "github.com/google/cloudprober/servers/proto"
-	"github.com/google/cloudprober/servers/udp"
-	"github.com/google/cloudprober/web/formatutils"
+	"github.com/yext/cloudprober/logger"
+	"github.com/yext/cloudprober/metrics"
+	"github.com/yext/cloudprober/servers/grpc"
+	"github.com/yext/cloudprober/servers/http"
+	configpb "github.com/yext/cloudprober/servers/proto"
+	"github.com/yext/cloudprober/servers/udp"
+	"github.com/yext/cloudprober/web/formatutils"
 )
 
 // StatusTmpl variable stores the HTML template suitable to generate the

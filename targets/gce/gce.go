@@ -53,9 +53,9 @@ import (
 	"net"
 
 	"cloud.google.com/go/compute/metadata"
-	"github.com/google/cloudprober/logger"
-	configpb "github.com/google/cloudprober/targets/gce/proto"
-	dnsRes "github.com/google/cloudprober/targets/resolver"
+	"github.com/yext/cloudprober/logger"
+	configpb "github.com/yext/cloudprober/targets/gce/proto"
+	dnsRes "github.com/yext/cloudprober/targets/resolver"
 )
 
 // Targets are able to list and resolve targets with their List and Resolve
