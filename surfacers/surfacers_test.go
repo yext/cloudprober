@@ -20,9 +20,9 @@ import (
 	"testing"
 
 	"github.com/golang/protobuf/proto"
-	"github.com/google/cloudprober/surfacers/file"
-	fileconfigpb "github.com/google/cloudprober/surfacers/file/proto"
-	surfacerpb "github.com/google/cloudprober/surfacers/proto"
+	"github.com/yext/cloudprober/surfacers/file"
+	fileconfigpb "github.com/yext/cloudprober/surfacers/file/proto"
+	surfacerpb "github.com/yext/cloudprober/surfacers/proto"
 )
 
 func TestDefaultConfig(t *testing.T) {

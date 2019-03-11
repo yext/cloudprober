@@ -19,7 +19,7 @@ import (
 	"testing"
 
 	"github.com/golang/protobuf/proto"
-	configpb "github.com/google/cloudprober/targets/gce/proto"
+	configpb "github.com/yext/cloudprober/targets/gce/proto"
 	compute "google.golang.org/api/compute/v1"
 )
 

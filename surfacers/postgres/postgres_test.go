@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/google/cloudprober/metrics"
+	"github.com/yext/cloudprober/metrics"
 )
 
 func Test_emToPGMetrics_No_Distribution(t *testing.T) {

@@ -48,8 +48,8 @@ import (
 	"time"
 
 	"github.com/golang/protobuf/proto"
-	epb "github.com/google/cloudprober/probes/external/proto"
-	"github.com/google/cloudprober/probes/external/serverutils"
+	epb "github.com/yext/cloudprober/probes/external/proto"
+	"github.com/yext/cloudprober/probes/external/serverutils"
 	"github.com/hoisie/redis"
 )
 

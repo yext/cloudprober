@@ -6,11 +6,11 @@ import (
 	"io/ioutil"
 
 	"flag"
-	"github.com/golang/glog"
+	"github.com/yext/glog"
 	"github.com/golang/protobuf/proto"
-	"github.com/google/cloudprober/logger"
-	"github.com/google/cloudprober/targets/rds/server"
-	configpb "github.com/google/cloudprober/targets/rds/server/proto"
+	"github.com/yext/cloudprober/logger"
+	"github.com/yext/cloudprober/targets/rds/server"
+	configpb "github.com/yext/cloudprober/targets/rds/server/proto"
 )
 
 var (

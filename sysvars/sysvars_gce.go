@@ -20,7 +20,7 @@ import (
 	"strings"
 
 	"cloud.google.com/go/compute/metadata"
-	"github.com/golang/glog"
+	"github.com/yext/glog"
 )
 
 // maxNICs is the number of NICs allowed on a VM. Used by addGceNicInfo.

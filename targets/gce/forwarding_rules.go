@@ -23,8 +23,8 @@ import (
 	"time"
 
 	"cloud.google.com/go/compute/metadata"
-	"github.com/google/cloudprober/logger"
-	configpb "github.com/google/cloudprober/targets/gce/proto"
+	"github.com/yext/cloudprober/logger"
+	configpb "github.com/yext/cloudprober/targets/gce/proto"
 	compute "google.golang.org/api/compute/v1"
 )
 

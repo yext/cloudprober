@@ -32,11 +32,11 @@ import (
 	"sync"
 	"time"
 
-	"github.com/google/cloudprober/logger"
-	"github.com/google/cloudprober/metrics"
-	configpb "github.com/google/cloudprober/probes/dns/proto"
-	"github.com/google/cloudprober/probes/options"
-	"github.com/google/cloudprober/probes/probeutils"
+	"github.com/yext/cloudprober/logger"
+	"github.com/yext/cloudprober/metrics"
+	configpb "github.com/yext/cloudprober/probes/dns/proto"
+	"github.com/yext/cloudprober/probes/options"
+	"github.com/yext/cloudprober/probes/probeutils"
 	"github.com/miekg/dns"
 )
 

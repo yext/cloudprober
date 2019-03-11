@@ -21,13 +21,13 @@ import (
 	"time"
 
 	"flag"
-	"github.com/golang/glog"
+	"github.com/yext/glog"
 	"github.com/golang/protobuf/proto"
 
-	"github.com/google/cloudprober/logger"
-	"github.com/google/cloudprober/targets/rds/client"
-	configpb "github.com/google/cloudprober/targets/rds/client/proto"
-	pb "github.com/google/cloudprober/targets/rds/proto"
+	"github.com/yext/cloudprober/logger"
+	"github.com/yext/cloudprober/targets/rds/client"
+	configpb "github.com/yext/cloudprober/targets/rds/client/proto"
+	pb "github.com/yext/cloudprober/targets/rds/proto"
 )
 
 var (
