@@ -33,7 +33,7 @@ import (
 	"time"
 
 	"github.com/yext/glog"
-	"github.com/golang/protobuf/proto"
+	"github.com/gogo/protobuf/proto"
 	"github.com/yext/cloudprober/config"
 	configpb "github.com/yext/cloudprober/config/proto"
 	"github.com/yext/cloudprober/logger"

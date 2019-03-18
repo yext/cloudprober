@@ -21,7 +21,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/golang/protobuf/proto"
+	"github.com/gogo/protobuf/proto"
 	"github.com/yext/cloudprober/logger"
 	"github.com/yext/cloudprober/targets"
 	targetspb "github.com/yext/cloudprober/targets/proto"

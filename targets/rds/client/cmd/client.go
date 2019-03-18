@@ -22,7 +22,7 @@ import (
 
 	"flag"
 	"github.com/yext/glog"
-	"github.com/golang/protobuf/proto"
+	"github.com/gogo/protobuf/proto"
 
 	"github.com/yext/cloudprober/logger"
 	"github.com/yext/cloudprober/targets/rds/client"

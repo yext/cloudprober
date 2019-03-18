@@ -21,7 +21,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/golang/protobuf/proto"
+	"github.com/gogo/protobuf/proto"
 	"github.com/yext/cloudprober/logger"
 	cpb "github.com/yext/cloudprober/targets/rtc/rtcreporter/proto"
 	"github.com/yext/cloudprober/targets/rtc/rtcservice"

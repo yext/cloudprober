@@ -20,7 +20,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/golang/protobuf/proto"
+	"github.com/gogo/protobuf/proto"
 	distpb "github.com/yext/cloudprober/metrics/proto"
 )
 

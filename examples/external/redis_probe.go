@@ -47,7 +47,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/golang/protobuf/proto"
+	"github.com/gogo/protobuf/proto"
 	epb "github.com/yext/cloudprober/probes/external/proto"
 	"github.com/yext/cloudprober/probes/external/serverutils"
 	"github.com/hoisie/redis"
