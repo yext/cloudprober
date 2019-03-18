@@ -1,7 +1,7 @@
 // This protobuf defines a new cloudprober probe type.
 syntax = "proto2";
 
-import "github.com/google/cloudprober/probes/proto/config.proto";
+import "github.com/yext/cloudprober/probes/proto/config.proto";
 
 package myprober;
 
