@@ -2,7 +2,7 @@
 // probe (in server mode).
 syntax = "proto2";
 
-package cloudprober;
+package cloudprober.probes.external;
 
 // ProbeRequest is the message that cloudprober sends to the external probe
 // server.
