@@ -31,7 +31,7 @@ import (
 	"sync"
 
 	"cloud.google.com/go/compute/metadata"
-	"github.com/golang/protobuf/proto"
+	"github.com/gogo/protobuf/proto"
 	"github.com/yext/cloudprober/logger"
 	"github.com/yext/cloudprober/targets/gce"
 	"github.com/yext/cloudprober/targets/lameduck"

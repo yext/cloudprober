@@ -19,7 +19,7 @@ package formatutils
 import (
 	"fmt"
 
-	"github.com/golang/protobuf/proto"
+	"github.com/gogo/protobuf/proto"
 )
 
 // ConfToString tries to convert the given conf object into a string.

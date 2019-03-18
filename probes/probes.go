@@ -24,7 +24,7 @@ import (
 	"regexp"
 	"sync"
 
-	"github.com/golang/protobuf/proto"
+	"github.com/gogo/protobuf/proto"
 	"github.com/yext/cloudprober/logger"
 	"github.com/yext/cloudprober/metrics"
 	"github.com/yext/cloudprober/probes/dns"

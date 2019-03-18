@@ -23,7 +23,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/golang/protobuf/proto"
+	"github.com/gogo/protobuf/proto"
 	"github.com/yext/cloudprober/logger"
 	configpb "github.com/yext/cloudprober/targets/rtc/proto"
 	cpb "github.com/yext/cloudprober/targets/rtc/rtcreporter/proto"

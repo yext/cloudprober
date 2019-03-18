@@ -5,7 +5,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/golang/protobuf/proto"
+	"github.com/gogo/protobuf/proto"
 	"github.com/yext/cloudprober/probes/options"
 	configpb "github.com/yext/cloudprober/probes/ping/proto"
 	"github.com/yext/cloudprober/targets"

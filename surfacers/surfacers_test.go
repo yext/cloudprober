@@ -19,7 +19,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/golang/protobuf/proto"
+	"github.com/gogo/protobuf/proto"
 	"github.com/yext/cloudprober/surfacers/file"
 	fileconfigpb "github.com/yext/cloudprober/surfacers/file/proto"
 	surfacerpb "github.com/yext/cloudprober/surfacers/proto"

@@ -21,7 +21,7 @@ package main
 import (
 	"context"
 
-	"github.com/golang/protobuf/proto"
+	"github.com/gogo/protobuf/proto"
 	"github.com/yext/cloudprober/logger"
 	"github.com/yext/cloudprober/servers/udp"
 	configpb "github.com/yext/cloudprober/servers/udp/proto"
