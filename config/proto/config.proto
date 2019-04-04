@@ -1,11 +1,11 @@
 syntax = "proto2";
 
-import "github.com/google/cloudprober/probes/proto/config.proto";
-import "github.com/google/cloudprober/servers/proto/config.proto";
-import "github.com/google/cloudprober/targets/proto/targets.proto";
-import "github.com/google/cloudprober/surfacers/proto/config.proto";
-import "github.com/google/cloudprober/targets/rds/server/proto/config.proto";
-import "github.com/google/cloudprober/targets/rtc/rtcreporter/proto/rtcreporter.proto";
+import "github.com/yext/cloudprober/probes/proto/config.proto";
+import "github.com/yext/cloudprober/servers/proto/config.proto";
+import "github.com/yext/cloudprober/targets/proto/targets.proto";
+import "github.com/yext/cloudprober/surfacers/proto/config.proto";
+import "github.com/yext/cloudprober/targets/rds/server/proto/config.proto";
+import "github.com/yext/cloudprober/targets/rtc/rtcreporter/proto/rtcreporter.proto";
 
 package cloudprober;
 

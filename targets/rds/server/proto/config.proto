@@ -11,7 +11,7 @@
 // }
 syntax = "proto2";
 
-import "github.com/google/cloudprober/targets/rds/server/gcp/proto/config.proto";
+import "github.com/yext/cloudprober/targets/rds/server/gcp/proto/config.proto";
 
 package cloudprober.targets.rds;
 
