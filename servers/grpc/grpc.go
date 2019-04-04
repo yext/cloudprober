@@ -62,7 +62,7 @@ func (s *Server) Echo(ctx context.Context, req *spb.EchoMessage) (*spb.EchoMessa
 
 // BlobRead returns a blob of data.
 func (s *Server) BlobRead(ctx context.Context, req *spb.BlobReadRequest) (*spb.BlobReadResponse, error) {
-	reqSize := req.GetSize()
+	reqSize := req.GetSize_()
 	if reqSize > int32(maxMsgSize) {
 		return nil, fmt.Errorf("read request size (%d) exceeds max size (%d)", reqSize, maxMsgSize)
 	}
@@ -86,7 +86,7 @@ func (s *Server) BlobWrite(ctx context.Context, req *spb.BlobWriteRequest) (*spb
 		return nil, fmt.Errorf("write request size (%d) exceeds max size (%d)", reqSize, maxMsgSize)
 	}
 	return &spb.BlobWriteResponse{
-		Size: proto.Int32(reqSize),
+		Size_: proto.Int32(reqSize),
 	}, nil
 }
 
