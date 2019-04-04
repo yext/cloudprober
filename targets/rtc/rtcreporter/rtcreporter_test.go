@@ -18,7 +18,7 @@ import (
 	"context"
 	"testing"
 
-	"github.com/golang/protobuf/proto"
+	"github.com/gogo/protobuf/proto"
 	"github.com/yext/cloudprober/logger"
 	rpb "github.com/yext/cloudprober/targets/rtc/rtcreporter/proto"
 	"github.com/yext/cloudprober/targets/rtc/rtcservice"

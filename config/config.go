@@ -117,7 +117,7 @@ import (
 	"text/template"
 
 	"cloud.google.com/go/compute/metadata"
-	"github.com/golang/protobuf/proto"
+	"github.com/gogo/protobuf/proto"
 	configpb "github.com/yext/cloudprober/config/proto"
 )
 

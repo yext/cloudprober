@@ -18,7 +18,7 @@ import (
 	"net"
 	"testing"
 
-	"github.com/golang/protobuf/proto"
+	"github.com/gogo/protobuf/proto"
 	configpb "github.com/yext/cloudprober/targets/gce/proto"
 	compute "google.golang.org/api/compute/v1"
 )

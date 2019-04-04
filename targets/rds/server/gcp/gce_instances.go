@@ -23,7 +23,7 @@ import (
 	"time"
 
 	"cloud.google.com/go/compute/metadata"
-	"github.com/golang/protobuf/proto"
+	"github.com/gogo/protobuf/proto"
 	"github.com/yext/cloudprober/logger"
 	pb "github.com/yext/cloudprober/targets/rds/proto"
 	"github.com/yext/cloudprober/targets/rds/server/filter"
