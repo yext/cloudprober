@@ -18,6 +18,7 @@ package http
 import (
 	"context"
 	"crypto/tls"
+	"crypto/x509"
 	"fmt"
 	"io/ioutil"
 	"net"
@@ -72,11 +73,11 @@ type Probe struct {
 }
 
 type result struct {
-	total, success, timeouts int64
-	latency                  metrics.Value
-	respCodes                *metrics.Map
-	respBodies               *metrics.Map
-	validationFailure        *metrics.Map
+	total, success, timeouts, dnsErrors, sslErrors int64
+	latency                                        metrics.Value
+	respCodes                                      *metrics.Map
+	respBodies                                     *metrics.Map
+	validationFailure                              *metrics.Map
 }
 
 // Init initializes the probe with the given params.
@@ -223,6 +224,33 @@ func isClientTimeout(err error) bool {
 	return false
 }
 
+// Return true if the underlying error indicates a SSL certificate verification error.
+//
+// Use for errors returned from http.Client methods (Get, Post).
+func isSSLError(err error) bool {
+	if uerr, ok := err.(*url.Error); ok {
+		switch uerr.Err.(type) {
+		case x509.CertificateInvalidError, x509.HostnameError, x509.UnknownAuthorityError:
+			return true
+		}
+	}
+	return false
+}
+
+// Return true if the underlying error indicates a DNS lookup error.
+//
+// Use for errors returned from http.Client methods (Get, Post).
+func isDNSError(err error) bool {
+	if uerr, ok := err.(*url.Error); ok {
+		if operr, ok := uerr.Err.(*net.OpError); ok {
+			if _, ok := operr.Err.(*net.DNSError); ok {
+				return true
+			}
+		}
+	}
+	return false
+}
+
 // httpRequest executes an HTTP request and updates the provided result struct.
 func (p *Probe) doHTTPRequest(req *http.Request, result *result) {
 	start := time.Now()
@@ -235,6 +263,16 @@ func (p *Probe) doHTTPRequest(req *http.Request, result *result) {
 		if isClientTimeout(err) {
 			p.l.Warning("Target:", req.Host, ", URL:", req.URL.String(), ", http.doHTTPRequest: timeout error: ", err.Error())
 			result.timeouts++
+			return
+		}
+		if isDNSError(err) {
+			p.l.Warning("Target:", req.Host, ", URL:", req.URL.String(), ", http.doHTTPRequest: DNS error: ", err.Error())
+			result.dnsErrors++
+			return
+		}
+		if isSSLError(err) {
+			p.l.Warning("Target:", req.Host, ", URL:", req.URL.String(), ", http.doHTTPRequest: SSL error: ", err.Error())
+			result.sslErrors++
 			return
 		}
 		p.l.Warning("Target:", req.Host, ", URL:", req.URL.String(), ", http.doHTTPRequest: ", err.Error())
@@ -379,6 +417,8 @@ func (p *Probe) Start(ctx context.Context, dataChan chan *metrics.EventMetrics) 
 					AddMetric("success", metrics.NewInt(result.success)).
 					AddMetric("latency", result.latency).
 					AddMetric("timeouts", metrics.NewInt(result.timeouts)).
+					AddMetric("dns-errors", metrics.NewInt(result.dnsErrors)).
+					AddMetric("ssl-errors", metrics.NewInt(result.sslErrors)).
 					AddMetric("resp-code", result.respCodes).
 					AddMetric("resp-body", result.respBodies).
 					AddLabel("ptype", "http").
