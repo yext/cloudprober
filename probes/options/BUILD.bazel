@@ -1,0 +1,18 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = ["options.go"],
+    importpath = "github.com/yext/cloudprober/probes/options",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//logger:go_default_library",
+        "//metrics:go_default_library",
+        "//probes/probeutils:go_default_library",
+        "//probes/proto:go_default_library",
+        "//targets:go_default_library",
+        "//targets/lameduck:go_default_library",
+        "//targets/proto:go_default_library",
+        "//validators:go_default_library",
+    ],
+)

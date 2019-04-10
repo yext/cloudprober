@@ -1,0 +1,23 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = ["cloudprober.go"],
+    importpath = "github.com/yext/cloudprober/cmd",
+    visibility = ["//visibility:private"],
+    deps = [
+        "//:go_default_library",
+        "//config:go_default_library",
+        "//config/runconfig:go_default_library",
+        "//sysvars:go_default_library",
+        "//web:go_default_library",
+        "@com_github_yext_glog//:go_default_library",
+        "@com_google_cloud_go//compute/metadata:go_default_library",
+    ],
+)
+
+go_binary(
+    name = "cmd",
+    embed = [":go_default_library"],
+    visibility = ["//visibility:public"],
+)

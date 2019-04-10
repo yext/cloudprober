@@ -1,0 +1,33 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "go_default_library",
+    srcs = ["dns.go"],
+    importpath = "github.com/yext/cloudprober/probes/dns",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//logger:go_default_library",
+        "//metrics:go_default_library",
+        "//probes/dns/proto:go_default_library",
+        "//probes/options:go_default_library",
+        "//probes/probeutils:go_default_library",
+        "@com_github_miekg_dns//:go_default_library",
+    ],
+)
+
+go_test(
+    name = "go_default_test",
+    srcs = ["dns_test.go"],
+    embed = [":go_default_library"],
+    deps = [
+        "//logger:go_default_library",
+        "//probes/dns/proto:go_default_library",
+        "//probes/options:go_default_library",
+        "//probes/probeutils:go_default_library",
+        "//targets:go_default_library",
+        "//validators:go_default_library",
+        "//validators/proto:go_default_library",
+        "@com_github_gogo_protobuf//proto:go_default_library",
+        "@com_github_miekg_dns//:go_default_library",
+    ],
+)
