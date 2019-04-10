@@ -1,0 +1,22 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = ["client.go"],
+    importpath = "github.com/yext/cloudprober/targets/rds/client/cmd",
+    visibility = ["//visibility:private"],
+    deps = [
+        "//logger:go_default_library",
+        "//targets/rds/client:go_default_library",
+        "//targets/rds/client/proto:go_default_library",
+        "//targets/rds/proto:go_default_library",
+        "@com_github_gogo_protobuf//proto:go_default_library",
+        "@com_github_yext_glog//:go_default_library",
+    ],
+)
+
+go_binary(
+    name = "cmd",
+    embed = [":go_default_library"],
+    visibility = ["//visibility:public"],
+)

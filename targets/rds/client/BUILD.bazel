@@ -1,0 +1,28 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "go_default_library",
+    srcs = ["client.go"],
+    importpath = "github.com/yext/cloudprober/targets/rds/client",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//logger:go_default_library",
+        "//targets/rds/client/proto:go_default_library",
+        "//targets/rds/proto:go_default_library",
+        "@org_golang_google_grpc//:go_default_library",
+    ],
+)
+
+go_test(
+    name = "go_default_test",
+    srcs = ["client_test.go"],
+    embed = [":go_default_library"],
+    deps = [
+        "//logger:go_default_library",
+        "//targets/rds/client/proto:go_default_library",
+        "//targets/rds/proto:go_default_library",
+        "//targets/rds/server:go_default_library",
+        "//targets/rds/server/proto:go_default_library",
+        "@com_github_gogo_protobuf//proto:go_default_library",
+    ],
+)

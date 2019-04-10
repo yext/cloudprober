@@ -1,0 +1,43 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "go_default_library",
+    srcs = [
+        "probes.go",
+        "probes_status_tmpl.go",
+    ],
+    importpath = "github.com/yext/cloudprober/probes",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//logger:go_default_library",
+        "//metrics:go_default_library",
+        "//probes/dns:go_default_library",
+        "//probes/external:go_default_library",
+        "//probes/http:go_default_library",
+        "//probes/options:go_default_library",
+        "//probes/ping:go_default_library",
+        "//probes/proto:go_default_library",
+        "//probes/udp:go_default_library",
+        "//probes/udplistener:go_default_library",
+        "//targets/lameduck:go_default_library",
+        "//targets/proto:go_default_library",
+        "//web/formatutils:go_default_library",
+        "@com_github_gogo_protobuf//proto:go_default_library",
+    ],
+)
+
+go_test(
+    name = "go_default_test",
+    srcs = ["probes_test.go"],
+    embed = [":go_default_library"],
+    deps = [
+        "//logger:go_default_library",
+        "//metrics:go_default_library",
+        "//probes/options:go_default_library",
+        "//probes/probeutils:go_default_library",
+        "//probes/proto:go_default_library",
+        "//probes/testdata:go_default_library",
+        "//targets/proto:go_default_library",
+        "@com_github_gogo_protobuf//proto:go_default_library",
+    ],
+)

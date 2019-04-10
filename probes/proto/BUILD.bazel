@@ -1,0 +1,45 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+load("@io_bazel_rules_go//proto:def.bzl", "go_proto_library")
+
+proto_library(
+    name = "cloudprober_probes_proto",
+    srcs = ["config.proto"],
+    visibility = ["//visibility:public"],
+    deps = [
+        "//metrics/proto:proto_proto",
+        "//probes/dns/proto:proto_proto",
+        "//probes/external/proto:proto_proto",
+        "//probes/http/proto:proto_proto",
+        "//probes/ping/proto:proto_proto",
+        "//probes/udp/proto:proto_proto",
+        "//probes/udplistener/proto:proto_proto",
+        "//targets/proto:proto_proto",
+        "//validators/proto:proto_proto",
+    ],
+)
+
+go_proto_library(
+    name = "cloudprober_probes_go_proto",
+    compilers = ["@io_bazel_rules_go//proto:gogo_proto"],
+    importpath = "github.com/yext/cloudprober/probes/proto",
+    proto = ":cloudprober_probes_proto",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//metrics/proto:go_default_library",
+        "//probes/dns/proto:go_default_library",
+        "//probes/external/proto:go_default_library",
+        "//probes/http/proto:go_default_library",
+        "//probes/ping/proto:go_default_library",
+        "//probes/udp/proto:go_default_library",
+        "//probes/udplistener/proto:go_default_library",
+        "//targets/proto:go_default_library",
+        "//validators/proto:go_default_library",
+    ],
+)
+
+go_library(
+    name = "go_default_library",
+    embed = [":cloudprober_probes_go_proto"],
+    importpath = "github.com/yext/cloudprober/probes/proto",
+    visibility = ["//visibility:public"],
+)

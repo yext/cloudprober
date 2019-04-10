@@ -1,0 +1,32 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "go_default_library",
+    srcs = [
+        "http.go",
+        "request.go",
+    ],
+    importpath = "github.com/yext/cloudprober/probes/http",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//logger:go_default_library",
+        "//metrics:go_default_library",
+        "//probes/http/proto:go_default_library",
+        "//probes/options:go_default_library",
+        "//probes/probeutils:go_default_library",
+    ],
+)
+
+go_test(
+    name = "go_default_test",
+    srcs = ["http_test.go"],
+    embed = [":go_default_library"],
+    deps = [
+        "//metrics:go_default_library",
+        "//probes/http/proto:go_default_library",
+        "//probes/options:go_default_library",
+        "//probes/probeutils:go_default_library",
+        "//targets:go_default_library",
+        "@com_github_gogo_protobuf//proto:go_default_library",
+    ],
+)

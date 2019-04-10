@@ -1,0 +1,39 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "go_default_library",
+    srcs = [
+        "gce_instances.go",
+        "gcp.go",
+        "rtc_variables.go",
+    ],
+    importpath = "github.com/yext/cloudprober/targets/rds/server/gcp",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//logger:go_default_library",
+        "//targets/rds/proto:go_default_library",
+        "//targets/rds/server/filter:go_default_library",
+        "//targets/rds/server/gcp/proto:go_default_library",
+        "@com_github_gogo_protobuf//proto:go_default_library",
+        "@com_google_cloud_go//compute/metadata:go_default_library",
+        "@org_golang_google_api//compute/v1:go_default_library",
+        "@org_golang_google_api//runtimeconfig/v1beta1:go_default_library",
+        "@org_golang_x_oauth2//google:go_default_library",
+    ],
+)
+
+go_test(
+    name = "go_default_test",
+    srcs = [
+        "gce_instances_test.go",
+        "rtc_variables_test.go",
+    ],
+    embed = [":go_default_library"],
+    deps = [
+        "//logger:go_default_library",
+        "//targets/rds/proto:go_default_library",
+        "@com_github_gogo_protobuf//proto:go_default_library",
+        "@org_golang_google_api//compute/v1:go_default_library",
+        "@org_golang_google_api//runtimeconfig/v1beta1:go_default_library",
+    ],
+)

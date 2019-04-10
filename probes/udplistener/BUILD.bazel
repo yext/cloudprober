@@ -1,0 +1,34 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "go_default_library",
+    srcs = ["udplistener.go"],
+    importpath = "github.com/yext/cloudprober/probes/udplistener",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//logger:go_default_library",
+        "//message:go_default_library",
+        "//metrics:go_default_library",
+        "//probes/options:go_default_library",
+        "//probes/probeutils:go_default_library",
+        "//probes/udplistener/proto:go_default_library",
+        "//servers/udp:go_default_library",
+    ],
+)
+
+go_test(
+    name = "go_default_test",
+    srcs = ["udplistener_test.go"],
+    embed = [":go_default_library"],
+    deps = [
+        "//logger:go_default_library",
+        "//message:go_default_library",
+        "//metrics:go_default_library",
+        "//probes/options:go_default_library",
+        "//probes/probeutils:go_default_library",
+        "//probes/udplistener/proto:go_default_library",
+        "//sysvars:go_default_library",
+        "//targets:go_default_library",
+        "@com_github_gogo_protobuf//proto:go_default_library",
+    ],
+)

@@ -1,0 +1,27 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "go_default_library",
+    srcs = ["rtcreporter.go"],
+    importpath = "github.com/yext/cloudprober/targets/rtc/rtcreporter",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//logger:go_default_library",
+        "//targets/rtc/rtcreporter/proto:go_default_library",
+        "//targets/rtc/rtcservice:go_default_library",
+        "@com_github_gogo_protobuf//proto:go_default_library",
+    ],
+)
+
+go_test(
+    name = "go_default_test",
+    srcs = ["rtcreporter_test.go"],
+    embed = [":go_default_library"],
+    deps = [
+        "//logger:go_default_library",
+        "//targets/rtc/rtcreporter/proto:go_default_library",
+        "//targets/rtc/rtcservice:go_default_library",
+        "@com_github_gogo_protobuf//proto:go_default_library",
+        "@com_github_kylelemons_godebug//pretty:go_default_library",
+    ],
+)

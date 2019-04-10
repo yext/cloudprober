@@ -1,0 +1,30 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "go_default_library",
+    srcs = ["surfacers.go"],
+    importpath = "github.com/yext/cloudprober/surfacers",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//logger:go_default_library",
+        "//metrics:go_default_library",
+        "//surfacers/file:go_default_library",
+        "//surfacers/postgres:go_default_library",
+        "//surfacers/prometheus:go_default_library",
+        "//surfacers/proto:go_default_library",
+        "//surfacers/stackdriver:go_default_library",
+        "//web/formatutils:go_default_library",
+    ],
+)
+
+go_test(
+    name = "go_default_test",
+    srcs = ["surfacers_test.go"],
+    embed = [":go_default_library"],
+    deps = [
+        "//surfacers/file:go_default_library",
+        "//surfacers/file/proto:go_default_library",
+        "//surfacers/proto:go_default_library",
+        "@com_github_gogo_protobuf//proto:go_default_library",
+    ],
+)

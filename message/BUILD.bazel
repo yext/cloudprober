@@ -1,0 +1,22 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "go_default_library",
+    srcs = ["message.go"],
+    importpath = "github.com/yext/cloudprober/message",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//message/proto:go_default_library",
+        "@com_github_gogo_protobuf//proto:go_default_library",
+    ],
+)
+
+go_test(
+    name = "go_default_test",
+    srcs = ["message_test.go"],
+    embed = [":go_default_library"],
+    deps = [
+        "//message/proto:go_default_library",
+        "@com_github_gogo_protobuf//proto:go_default_library",
+    ],
+)

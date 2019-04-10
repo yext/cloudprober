@@ -1,0 +1,25 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+load("@io_bazel_rules_go//proto:def.bzl", "go_proto_library")
+
+proto_library(
+    name = "cloudprober_probes_testdata_proto",
+    srcs = ["testdata.proto"],
+    visibility = ["//visibility:public"],
+    deps = ["//probes/proto:proto_proto"],
+)
+
+go_proto_library(
+    name = "cloudprober_probes_testdata_go_proto",
+    compilers = ["@io_bazel_rules_go//proto:gogo_proto"],
+    importpath = "github.com/yext/cloudprober/probes/testdata",
+    proto = ":cloudprober_probes_testdata_proto",
+    visibility = ["//visibility:public"],
+    deps = ["//probes/proto:go_default_library"],
+)
+
+go_library(
+    name = "go_default_library",
+    embed = [":cloudprober_probes_testdata_go_proto"],
+    importpath = "github.com/yext/cloudprober/probes/testdata",
+    visibility = ["//visibility:public"],
+)
