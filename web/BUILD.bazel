@@ -1,0 +1,19 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = [
+        "status_tmpl.go",
+        "web.go",
+    ],
+    importpath = "github.com/yext/cloudprober/web",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//:go_default_library",
+        "//config/runconfig:go_default_library",
+        "//probes:go_default_library",
+        "//servers:go_default_library",
+        "//surfacers:go_default_library",
+        "//sysvars:go_default_library",
+    ],
+)

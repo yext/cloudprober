@@ -1,0 +1,9 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = ["filter.go"],
+    importpath = "github.com/yext/cloudprober/targets/rds/server/filter",
+    visibility = ["//visibility:public"],
+    deps = ["//logger:go_default_library"],
+)

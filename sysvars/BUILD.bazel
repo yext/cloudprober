@@ -1,0 +1,36 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "go_default_library",
+    srcs = [
+        "runtime.go",
+        "runtime_linux.go",
+        "runtime_nonlinux.go",
+        "sysvars.go",
+        "sysvars_gce.go",
+    ],
+    importpath = "github.com/yext/cloudprober/sysvars",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//config/runconfig:go_default_library",
+        "//logger:go_default_library",
+        "//metrics:go_default_library",
+        "@com_github_yext_glog//:go_default_library",
+        "@com_google_cloud_go//compute/metadata:go_default_library",
+    ] + select({
+        "@io_bazel_rules_go//go/platform:linux": [
+            "@org_golang_x_sys//unix:go_default_library",
+        ],
+        "//conditions:default": [],
+    }),
+)
+
+go_test(
+    name = "go_default_test",
+    srcs = ["runtime_test.go"],
+    embed = [":go_default_library"],
+    deps = [
+        "//logger:go_default_library",
+        "//metrics:go_default_library",
+    ],
+)

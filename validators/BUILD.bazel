@@ -1,0 +1,15 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = ["validators.go"],
+    importpath = "github.com/yext/cloudprober/validators",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//logger:go_default_library",
+        "//validators/http:go_default_library",
+        "//validators/integrity:go_default_library",
+        "//validators/proto:go_default_library",
+        "//validators/regex:go_default_library",
+    ],
+)

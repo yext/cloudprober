@@ -1,0 +1,25 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "go_default_library",
+    srcs = ["lameduck.go"],
+    importpath = "github.com/yext/cloudprober/targets/lameduck",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//logger:go_default_library",
+        "//targets/lameduck/proto:go_default_library",
+        "//targets/rds/client:go_default_library",
+        "//targets/rds/client/proto:go_default_library",
+        "//targets/rds/proto:go_default_library",
+        "//targets/rtc/rtcservice:go_default_library",
+        "@com_github_gogo_protobuf//proto:go_default_library",
+        "@com_google_cloud_go//compute/metadata:go_default_library",
+        "@org_golang_google_api//runtimeconfig/v1beta1:go_default_library",
+    ],
+)
+
+go_test(
+    name = "go_default_test",
+    srcs = ["lameduck_test.go"],
+    embed = [":go_default_library"],
+)

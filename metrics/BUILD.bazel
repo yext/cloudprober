@@ -1,0 +1,35 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "go_default_library",
+    srcs = [
+        "dist.go",
+        "eventmetrics.go",
+        "float.go",
+        "int.go",
+        "map.go",
+        "metrics.go",
+        "string.go",
+    ],
+    importpath = "github.com/yext/cloudprober/metrics",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//metrics/proto:go_default_library",
+        "@org_golang_google_api//googleapi:go_default_library",
+        "@org_golang_google_api//monitoring/v3:go_default_library",
+    ],
+)
+
+go_test(
+    name = "go_default_test",
+    srcs = [
+        "dist_test.go",
+        "eventmetrics_test.go",
+        "map_test.go",
+    ],
+    embed = [":go_default_library"],
+    deps = [
+        "//metrics/proto:go_default_library",
+        "@com_github_gogo_protobuf//proto:go_default_library",
+    ],
+)

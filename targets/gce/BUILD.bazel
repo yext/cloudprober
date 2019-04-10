@@ -1,0 +1,32 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "go_default_library",
+    srcs = [
+        "forwarding_rules.go",
+        "gce.go",
+        "gce_utils.go",
+        "instances.go",
+    ],
+    importpath = "github.com/yext/cloudprober/targets/gce",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//logger:go_default_library",
+        "//targets/gce/proto:go_default_library",
+        "//targets/resolver:go_default_library",
+        "@com_google_cloud_go//compute/metadata:go_default_library",
+        "@org_golang_google_api//compute/v1:go_default_library",
+        "@org_golang_x_oauth2//google:go_default_library",
+    ],
+)
+
+go_test(
+    name = "go_default_test",
+    srcs = ["instances_test.go"],
+    embed = [":go_default_library"],
+    deps = [
+        "//targets/gce/proto:go_default_library",
+        "@com_github_gogo_protobuf//proto:go_default_library",
+        "@org_golang_google_api//compute/v1:go_default_library",
+    ],
+)
