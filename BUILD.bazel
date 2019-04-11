@@ -21,3 +21,39 @@ go_library(
         "@com_github_yext_glog//:go_default_library",
     ],
 )
+
+# gazelle:go_proto_compilers @io_bazel_rules_go//proto:gogo_proto
+# gazelle:go_grpc_compilers @io_bazel_rules_go//proto:gogo_grpc
+# gazelle:prefix github.com/yext/cloudprober
+# gazelle:proto_import_prefix github.com/yext/cloudprober
+# gazelle:proto_strip_import_prefix /
+# gazelle:resolve proto proto github.com/yext/cloudprober/config/proto/config.proto //config/proto:cloudprober_proto
+# gazelle:resolve proto proto github.com/yext/cloudprober/metrics/proto/dist.proto //metrics/proto:cloudprober_metrics_proto
+# gazelle:resolve proto proto github.com/yext/cloudprober/probes/dns/proto/config.proto //probes/dns/proto:cloudprober_probes_dns_proto
+# gazelle:resolve proto proto github.com/yext/cloudprober/probes/external/proto/config.proto //probes/external/proto:cloudprober_probes_external_proto
+# gazelle:resolve proto proto github.com/yext/cloudprober/probes/http/proto/config.proto //probes/http/proto:cloudprober_probes_http_proto
+# gazelle:resolve proto proto github.com/yext/cloudprober/probes/ping/proto/config.proto //probes/ping/proto:cloudprober_probes_ping_proto
+# gazelle:resolve proto proto github.com/yext/cloudprober/probes/proto/config.proto //probes/proto:cloudprober_probes_proto
+# gazelle:resolve proto proto github.com/yext/cloudprober/probes/udp/proto/config.proto //probes/udp/proto:cloudprober_probes_udp_proto
+# gazelle:resolve proto proto github.com/yext/cloudprober/probes/udplistener/proto/config.proto //probes/udplistener/proto:cloudprober_probes_udplistener_proto
+# gazelle:resolve proto proto github.com/yext/cloudprober/servers/grpc/proto/config.proto //servers/grpc/proto:cloudprober_servers_grpc_proto
+# gazelle:resolve proto proto github.com/yext/cloudprober/servers/http/proto/config.proto //servers/http/proto:cloudprober_servers_http_proto
+# gazelle:resolve proto proto github.com/yext/cloudprober/servers/proto/config.proto //servers/proto:cloudprober_servers_proto
+# gazelle:resolve proto proto github.com/yext/cloudprober/servers/udp/proto/config.proto //servers/udp/proto:cloudprober_servers_udp_proto
+# gazelle:resolve proto proto github.com/yext/cloudprober/surfacers/file/proto/config.proto //surfacers/file/proto:cloudprober_surfacer_file_proto
+# gazelle:resolve proto proto github.com/yext/cloudprober/surfacers/postgres/proto/config.proto //surfacers/postgres/proto:cloudprober_surfacer_postgres_proto
+# gazelle:resolve proto proto github.com/yext/cloudprober/surfacers/prometheus/proto/config.proto //surfacers/prometheus/proto:cloudprober_surfacer_prometheus_proto
+# gazelle:resolve proto proto github.com/yext/cloudprober/surfacers/proto/config.proto //surfacers/proto:cloudprober_surfacer_proto
+# gazelle:resolve proto proto github.com/yext/cloudprober/surfacers/stackdriver/proto/config.proto //surfacers/stackdriver/proto:cloudprober_surfacer_stackdriver_proto
+# gazelle:resolve proto proto github.com/yext/cloudprober/targets/gce/proto/config.proto //targets/gce/proto:cloudprober_targets_gce_proto
+# gazelle:resolve proto proto github.com/yext/cloudprober/targets/lameduck/proto/config.proto //targets/lameduck/proto:cloudprober_targets_lameduck_proto
+# gazelle:resolve proto proto github.com/yext/cloudprober/targets/proto/targets.proto //targets/proto:cloudprober_targets_proto
+# gazelle:resolve proto proto github.com/yext/cloudprober/targets/rds/client/proto/config.proto //targets/rds/client/proto:cloudprober_targets_rds_proto
+# gazelle:resolve proto proto github.com/yext/cloudprober/targets/rds/proto/rds.proto //targets/rds/proto:cloudprober_targets_rds_proto
+# gazelle:resolve proto proto github.com/yext/cloudprober/targets/rds/server/gcp/proto/config.proto //targets/rds/server/gcp/proto:cloudprober_targets_rds_gcp_proto
+# gazelle:resolve proto proto github.com/yext/cloudprober/targets/rds/server/proto/config.proto //targets/rds/server/proto:cloudprober_targets_rds_proto
+# gazelle:resolve proto proto github.com/yext/cloudprober/targets/rtc/proto/config.proto //targets/rtc/proto:cloudprober_targets_rtc_proto
+# gazelle:resolve proto proto github.com/yext/cloudprober/targets/rtc/rtcreporter/proto/rtcreporter.proto //targets/rtc/rtcreporter/proto:cloudprober_targets_rtcreporter_proto
+# gazelle:resolve proto proto github.com/yext/cloudprober/validators/http/proto/config.proto //validators/http/proto:cloudprober_validators_http_proto
+# gazelle:resolve proto proto github.com/yext/cloudprober/validators/integrity/proto/config.proto //validators/integrity/proto:cloudprober_validators_integrity_proto
+# gazelle:resolve proto proto github.com/yext/cloudprober/validators/proto/config.proto //validators/proto:cloudprober_validators_proto
