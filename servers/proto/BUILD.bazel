@@ -4,11 +4,13 @@ load("@io_bazel_rules_go//proto:def.bzl", "go_proto_library")
 proto_library(
     name = "cloudprober_servers_proto",
     srcs = ["config.proto"],
+    import_prefix = "github.com/yext/cloudprober",
+    strip_import_prefix = "/",
     visibility = ["//visibility:public"],
     deps = [
-        "//servers/grpc/proto:proto_proto",
-        "//servers/http/proto:proto_proto",
-        "//servers/udp/proto:proto_proto",
+        "//servers/grpc/proto:cloudprober_servers_grpc_proto",
+        "//servers/http/proto:cloudprober_servers_http_proto",
+        "//servers/udp/proto:cloudprober_servers_udp_proto",
     ],
 )
 

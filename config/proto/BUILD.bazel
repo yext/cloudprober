@@ -4,14 +4,16 @@ load("@io_bazel_rules_go//proto:def.bzl", "go_proto_library")
 proto_library(
     name = "cloudprober_proto",
     srcs = ["config.proto"],
+    import_prefix = "github.com/yext/cloudprober",
+    strip_import_prefix = "/",
     visibility = ["//visibility:public"],
     deps = [
-        "//probes/proto:proto_proto",
-        "//servers/proto:proto_proto",
-        "//surfacers/proto:proto_proto",
-        "//targets/proto:proto_proto",
-        "//targets/rds/server/proto:proto_proto",
-        "//targets/rtc/rtcreporter/proto:proto_proto",
+        "//probes/proto:cloudprober_probes_proto",
+        "//servers/proto:cloudprober_servers_proto",
+        "//surfacers/proto:cloudprober_surfacer_proto",
+        "//targets/proto:cloudprober_targets_proto",
+        "//targets/rds/server/proto:cloudprober_targets_rds_proto",
+        "//targets/rtc/rtcreporter/proto:cloudprober_targets_rtcreporter_proto",
     ],
 )
 

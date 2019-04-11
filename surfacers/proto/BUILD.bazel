@@ -4,12 +4,14 @@ load("@io_bazel_rules_go//proto:def.bzl", "go_proto_library")
 proto_library(
     name = "cloudprober_surfacer_proto",
     srcs = ["config.proto"],
+    import_prefix = "github.com/yext/cloudprober",
+    strip_import_prefix = "/",
     visibility = ["//visibility:public"],
     deps = [
-        "//surfacers/file/proto:proto_proto",
-        "//surfacers/postgres/proto:proto_proto",
-        "//surfacers/prometheus/proto:proto_proto",
-        "//surfacers/stackdriver/proto:proto_proto",
+        "//surfacers/file/proto:cloudprober_surfacer_file_proto",
+        "//surfacers/postgres/proto:cloudprober_surfacer_postgres_proto",
+        "//surfacers/prometheus/proto:cloudprober_surfacer_prometheus_proto",
+        "//surfacers/stackdriver/proto:cloudprober_surfacer_stackdriver_proto",
     ],
 )
 
