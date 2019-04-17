@@ -4,17 +4,19 @@ load("@io_bazel_rules_go//proto:def.bzl", "go_proto_library")
 proto_library(
     name = "cloudprober_probes_proto",
     srcs = ["config.proto"],
+    import_prefix = "github.com/yext/cloudprober",
+    strip_import_prefix = "/",
     visibility = ["//visibility:public"],
     deps = [
-        "//metrics/proto:proto_proto",
-        "//probes/dns/proto:proto_proto",
-        "//probes/external/proto:proto_proto",
-        "//probes/http/proto:proto_proto",
-        "//probes/ping/proto:proto_proto",
-        "//probes/udp/proto:proto_proto",
-        "//probes/udplistener/proto:proto_proto",
-        "//targets/proto:proto_proto",
-        "//validators/proto:proto_proto",
+        "//metrics/proto:cloudprober_metrics_proto",
+        "//probes/dns/proto:cloudprober_probes_dns_proto",
+        "//probes/external/proto:cloudprober_probes_external_proto",
+        "//probes/http/proto:cloudprober_probes_http_proto",
+        "//probes/ping/proto:cloudprober_probes_ping_proto",
+        "//probes/udp/proto:cloudprober_probes_udp_proto",
+        "//probes/udplistener/proto:cloudprober_probes_udplistener_proto",
+        "//targets/proto:cloudprober_targets_proto",
+        "//validators/proto:cloudprober_validators_proto",
     ],
 )
 

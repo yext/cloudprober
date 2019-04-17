@@ -7,12 +7,14 @@ proto_library(
         "config.proto",
         "grpcservice.proto",
     ],
+    import_prefix = "github.com/yext/cloudprober",
+    strip_import_prefix = "/",
     visibility = ["//visibility:public"],
 )
 
 go_proto_library(
     name = "cloudprober_servers_grpc_go_proto",
-    compilers = ["@io_bazel_rules_go//proto:go_grpc"],
+    compilers = ["@io_bazel_rules_go//proto:gogo_grpc"],
     importpath = "github.com/yext/cloudprober/servers/grpc/proto",
     proto = ":cloudprober_servers_grpc_proto",
     visibility = ["//visibility:public"],

@@ -7,8 +7,10 @@ proto_library(
         "config.proto",
         "server.proto",
     ],
+    import_prefix = "github.com/yext/cloudprober",
+    strip_import_prefix = "/",
     visibility = ["//visibility:public"],
-    deps = ["//metrics/proto:proto_proto"],
+    deps = ["//metrics/proto:cloudprober_metrics_proto"],
 )
 
 go_proto_library(
