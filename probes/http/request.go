@@ -19,6 +19,7 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"strings"
 )
 
 // requestBody encapsulates the request body and implements the io.ReadCloser()
@@ -40,7 +41,14 @@ func (rb *requestBody) Close() error {
 
 func (p *Probe) httpRequestForTarget(target string) *http.Request {
 	// Prepare HTTP.Request for Client.Do
-	host := target
+	hostAndPath := strings.SplitN(target, "/", 2)
+	host := hostAndPath[0]
+	path := ""
+	if p.url != "" {
+		path = p.url
+	} else if len(hostAndPath) > 1 && hostAndPath[1] != "" {
+		path = "/" + hostAndPath[1]
+	}
 
 	if p.c.GetResolveFirst() {
 		ip, err := p.opts.Targets.Resolve(target, 4) // Support IPv4 for now, should be a config option.
@@ -55,7 +63,7 @@ func (p *Probe) httpRequestForTarget(target string) *http.Request {
 		host = fmt.Sprintf("%s:%d", host, p.c.GetPort())
 	}
 
-	url := fmt.Sprintf("%s://%s%s", p.protocol, host, p.url)
+	url := fmt.Sprintf("%s://%s%s", p.protocol, host, path)
 
 	// Prepare request body
 	body := &requestBody{
@@ -70,7 +78,7 @@ func (p *Probe) httpRequestForTarget(target string) *http.Request {
 	// If resolving early, URL contains IP for the hostname (see above). Update
 	// req.Host after request creation, so that correct Host header is sent to the
 	// web server.
-	req.Host = target
+	req.Host = hostAndPath[0]
 
 	for _, header := range p.c.GetHeaders() {
 		req.Header.Set(header.GetName(), header.GetValue())
