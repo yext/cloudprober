@@ -33,7 +33,6 @@ go_test(
     deps = [
         "//probes/options:go_default_library",
         "//probes/ping/proto:go_default_library",
-        "//probes/probeutils:go_default_library",
         "//targets:go_default_library",
         "@com_github_gogo_protobuf//proto:go_default_library",
         "@com_github_yext_glog//:go_default_library",

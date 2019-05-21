@@ -1,4 +1,4 @@
-load("@io_bazel_rules_go//go:def.bzl", "go_library")
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
 
 go_library(
     name = "go_default_library",
@@ -14,5 +14,16 @@ go_library(
         "//targets/lameduck:go_default_library",
         "//targets/proto:go_default_library",
         "//validators:go_default_library",
+    ],
+)
+
+go_test(
+    name = "go_default_test",
+    srcs = ["options_test.go"],
+    embed = [":go_default_library"],
+    deps = [
+        "//logger:go_default_library",
+        "//probes/probeutils:go_default_library",
+        "//probes/proto:go_default_library",
     ],
 )

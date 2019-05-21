@@ -13,7 +13,6 @@ go_library(
         "//metrics:go_default_library",
         "//probes/http/proto:go_default_library",
         "//probes/options:go_default_library",
-        "//probes/probeutils:go_default_library",
     ],
 )
 
@@ -25,7 +24,6 @@ go_test(
         "//metrics:go_default_library",
         "//probes/http/proto:go_default_library",
         "//probes/options:go_default_library",
-        "//probes/probeutils:go_default_library",
         "//targets:go_default_library",
         "@com_github_gogo_protobuf//proto:go_default_library",
     ],

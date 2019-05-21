@@ -19,9 +19,9 @@ import (
 	"net"
 	"testing"
 
-	"github.com/google/cloudprober/logger"
-	"github.com/google/cloudprober/probes/probeutils"
-	configpb "github.com/google/cloudprober/probes/proto"
+	"github.com/yext/cloudprober/logger"
+	"github.com/yext/cloudprober/probes/probeutils"
+	configpb "github.com/yext/cloudprober/probes/proto"
 )
 
 type intf struct {
