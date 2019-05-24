@@ -21,6 +21,7 @@ import (
 	"crypto/x509"
 	"fmt"
 	"io/ioutil"
+	"math/rand"
 	"net"
 	"net/http"
 	"net/url"
@@ -318,9 +319,6 @@ func (p *Probe) updateTargets() {
 }
 
 func (p *Probe) runProbe(ctx context.Context) {
-	reqCtx, cancelReqCtx := context.WithTimeout(ctx, p.opts.Timeout)
-	defer cancelReqCtx()
-
 	wg := sync.WaitGroup{}
 	for _, target := range p.targets {
 		req := p.httpRequests[target]
@@ -333,6 +331,15 @@ func (p *Probe) runProbe(ctx context.Context) {
 		// Launch a separate goroutine for each target.
 		go func(target string, req *http.Request) {
 			defer wg.Done()
+
+			// Spread out http requests over the probes time interval.
+			if p.opts.Interval-p.opts.Timeout > 0 {
+				time.Sleep(time.Duration(rand.Int63n(int64(p.opts.Interval - p.opts.Timeout))))
+			}
+
+			reqCtx, cancelReqCtx := context.WithTimeout(ctx, p.opts.Timeout)
+			defer cancelReqCtx()
+
 			numRequests := int32(0)
 			for {
 				p.doHTTPRequest(req.WithContext(reqCtx), p.results[target])
