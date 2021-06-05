@@ -106,7 +106,7 @@ func TestGRPCSuccess(t *testing.T) {
 	}
 
 	wantReadSize := 4
-	readReq := &spb.BlobReadRequest{Size: proto.Int32(int32(wantReadSize))}
+	readReq := &spb.BlobReadRequest{Size_: proto.Int32(int32(wantReadSize))}
 	readResp, err := client.BlobRead(timedCtx, readReq)
 	if err != nil {
 		t.Errorf("Read call error: %v", err)
@@ -124,8 +124,8 @@ func TestGRPCSuccess(t *testing.T) {
 		t.Errorf("Write call error: %v", err)
 	}
 	t.Logf("WriteResponse: <%v>", writeResp)
-	if writeResp.GetSize() != int32(len(msg)) {
-		t.Errorf("Write response mismatch: got %v want %v", writeResp.GetSize(), len(msg))
+	if writeResp.GetSize_() != int32(len(msg)) {
+		t.Errorf("Write response mismatch: got %v want %v", writeResp.GetSize_(), len(msg))
 	}
 }
 
@@ -232,7 +232,7 @@ func TestSizeError(t *testing.T) {
 	timedCtx, timedCancel := context.WithTimeout(ctx, time.Second)
 	defer timedCancel()
 
-	readReq := &spb.BlobReadRequest{Size: proto.Int32(int32(maxMsgSize + 1))}
+	readReq := &spb.BlobReadRequest{Size_: proto.Int32(int32(maxMsgSize + 1))}
 	readResp, err := client.BlobRead(timedCtx, readReq)
 	if err == nil {
 		t.Errorf("Read call unexpectedly succeeded: %v", readResp)
