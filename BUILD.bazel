@@ -22,6 +22,7 @@ go_library(
     ],
 )
 
+# gazelle:exclude .examples
 # gazelle:go_proto_compilers @io_bazel_rules_go//proto:gogo_proto
 # gazelle:go_grpc_compilers @io_bazel_rules_go//proto:gogo_grpc
 # gazelle:prefix github.com/yext/cloudprober
