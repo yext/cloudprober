@@ -1,4 +1,14 @@
 load("@io_bazel_rules_go//go:def.bzl", "go_library")
+load("@bazel_gazelle//:def.bzl", "gazelle_binary")
+
+gazelle_binary(
+    name = "gazelle",
+    languages = [
+        "@bazel_gazelle//language/go:go_default_library",
+        "@bazel_gazelle//language/proto:go_default_library",
+    ],
+    visibility = ["//visibility:public"],
+)
 
 go_library(
     name = "go_default_library",
@@ -58,3 +68,37 @@ go_library(
 # gazelle:resolve proto proto github.com/yext/cloudprober/validators/http/proto/config.proto //validators/http/proto:cloudprober_validators_http_proto
 # gazelle:resolve proto proto github.com/yext/cloudprober/validators/integrity/proto/config.proto //validators/integrity/proto:cloudprober_validators_integrity_proto
 # gazelle:resolve proto proto github.com/yext/cloudprober/validators/proto/config.proto //validators/proto:cloudprober_validators_proto
+
+# gazelle:resolve go go github.com/yext/cloudprober/config/proto //config/proto:go_default_library
+# gazelle:resolve go go github.com/yext/cloudprober/message/proto //message/proto:go_default_library
+# gazelle:resolve go go github.com/yext/cloudprober/metrics/proto //metrics/proto:go_default_library
+# gazelle:resolve go go github.com/yext/cloudprober/probes/dns/proto //probes/dns/proto:go_default_library
+# gazelle:resolve go go github.com/yext/cloudprober/probes/external/proto //probes/external/proto:go_default_library
+# gazelle:resolve go go github.com/yext/cloudprober/probes/http/proto //probes/http/proto:go_default_library
+# gazelle:resolve go go github.com/yext/cloudprober/probes/ping/proto //probes/ping/proto:go_default_library
+# gazelle:resolve go go github.com/yext/cloudprober/probes/proto //probes/proto:go_default_library
+# gazelle:resolve go go github.com/yext/cloudprober/probes/testdata //probes/testdata:go_default_library
+# gazelle:resolve go go github.com/yext/cloudprober/probes/udp/proto //probes/udp/proto:go_default_library
+# gazelle:resolve go go github.com/yext/cloudprober/probes/udplistener/proto //probes/udplistener/proto:go_default_library
+# gazelle:resolve go go github.com/yext/cloudprober/servers/grpc/proto //servers/grpc/proto:go_default_library
+# gazelle:resolve go go github.com/yext/cloudprober/servers/http/proto //servers/http/proto:go_default_library
+# gazelle:resolve go go github.com/yext/cloudprober/servers/proto //servers/proto:go_default_library
+# gazelle:resolve go go github.com/yext/cloudprober/servers/udp/proto //servers/udp/proto:go_default_library
+# gazelle:resolve go go github.com/yext/cloudprober/surfacers/file/proto //surfacers/file/proto:go_default_library
+# gazelle:resolve go go github.com/yext/cloudprober/surfacers/postgres/proto //surfacers/postgres/proto:go_default_library
+# gazelle:resolve go go github.com/yext/cloudprober/surfacers/prometheus/proto //surfacers/prometheus/proto:go_default_library
+# gazelle:resolve go go github.com/yext/cloudprober/surfacers/proto //surfacers/proto:go_default_library
+# gazelle:resolve go go github.com/yext/cloudprober/surfacers/stackdriver/proto //surfacers/stackdriver/proto:go_default_library
+# gazelle:resolve go go github.com/yext/cloudprober/targets/gce/proto //targets/gce/proto:go_default_library
+# gazelle:resolve go go github.com/yext/cloudprober/targets/lameduck/proto //targets/lameduck/proto:go_default_library
+# gazelle:resolve go go github.com/yext/cloudprober/targets/proto //targets/proto:go_default_library
+# gazelle:resolve go go github.com/yext/cloudprober/targets/rds/client/proto //targets/rds/client/proto:go_default_library
+# gazelle:resolve go go github.com/yext/cloudprober/targets/rds/proto //targets/rds/proto:go_default_library
+# gazelle:resolve go go github.com/yext/cloudprober/targets/rds/server/gcp/proto //targets/rds/server/gcp/proto:go_default_library
+# gazelle:resolve go go github.com/yext/cloudprober/targets/rds/server/proto //targets/rds/server/proto:go_default_library
+# gazelle:resolve go go github.com/yext/cloudprober/targets/rtc/proto //targets/rtc/proto:go_default_library
+# gazelle:resolve go go github.com/yext/cloudprober/targets/rtc/rtcreporter/proto //targets/rtc/rtcreporter/proto:go_default_library
+# gazelle:resolve go go github.com/yext/cloudprober/targets/testdata //targets/testdata:go_default_library
+# gazelle:resolve go go github.com/yext/cloudprober/validators/http/proto //validators/http/proto:go_default_library
+# gazelle:resolve go go github.com/yext/cloudprober/validators/integrity/proto //validators/integrity/proto:go_default_library
+# gazelle:resolve go go github.com/yext/cloudprober/validators/proto //validators/proto:go_default_library
