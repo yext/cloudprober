@@ -189,12 +189,25 @@ func isClientTimeout(err error) bool {
 //
 // Use for errors returned from http.Client methods (Get, Post).
 func isSSLError(err error) bool {
+	if err == nil {
+		return false
+	}
+
 	if uerr, ok := err.(*url.Error); ok {
 		switch uerr.Err.(type) {
 		case x509.CertificateInvalidError, x509.HostnameError, x509.UnknownAuthorityError:
 			return true
+		case tls.RecordHeaderError:
+			return true
 		}
 	}
+
+	// In the case of handshake errors, Go does not have a predefined
+	// typed error. So use prefix matching to catch these errors.
+	if strings.HasPrefix(err.Error(), "tls: ") {
+		return true
+	}
+
 	return false
 }
 
