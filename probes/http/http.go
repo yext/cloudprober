@@ -189,6 +189,10 @@ func isClientTimeout(err error) bool {
 //
 // Use for errors returned from http.Client methods (Get, Post).
 func isSSLError(err error) bool {
+	if err == nil {
+		return false
+	}
+
 	if uerr, ok := err.(*url.Error); ok {
 		switch uerr.Err.(type) {
 		case x509.CertificateInvalidError, x509.HostnameError, x509.UnknownAuthorityError:
