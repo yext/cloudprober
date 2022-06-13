@@ -193,8 +193,17 @@ func isSSLError(err error) bool {
 		switch uerr.Err.(type) {
 		case x509.CertificateInvalidError, x509.HostnameError, x509.UnknownAuthorityError:
 			return true
+		case tls.RecordHeaderError:
+			return true
 		}
 	}
+
+	// In the case of handshake errors, Go does not have a predefined
+	// typed error. So use prefix matching to catch these errors.
+	if strings.HasPrefix(err.Error(), "tls: ") {
+		return true
+	}
+
 	return false
 }
 
