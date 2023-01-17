@@ -9,7 +9,7 @@ go_library(
         "//logger:go_default_library",
         "//metrics:go_default_library",
         "//surfacers/stackdriver/proto:go_default_library",
-        "@com_google_cloud_go//compute/metadata:go_default_library",
+        "@com_google_cloud_go_compute_metadata//:go_default_library",
         "@org_golang_google_api//monitoring/v3:go_default_library",
         "@org_golang_x_oauth2//google:go_default_library",
     ],
