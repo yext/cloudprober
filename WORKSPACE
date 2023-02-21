@@ -389,8 +389,16 @@ go_repository(
 go_repository(
     name = "com_google_cloud_go",
     importpath = "cloud.google.com/go",
-    sum = "h1:at8Tk2zUz63cLPR0JPWm5vp77pEZmzxEQBEfRKn1VV8=",
-    version = "v0.81.0",
+    sum = "h1:8ZtzmY4a2JIO2sljMbpqkDYxA8aJQveYr3AMa+X40oc=",
+    version = "v0.87.0",
+)
+
+go_repository(
+    name = "com_google_cloud_go_compute_metadata",
+    build_file_proto_mode = "disable",
+    importpath = "cloud.google.com/go/compute/metadata",
+    sum = "h1:nBbNSZyDpkNlo3DepaaLKVuO7ClyifSAmNloSCZrHnQ=",
+    version = "v0.2.0",
 )
 
 go_repository(

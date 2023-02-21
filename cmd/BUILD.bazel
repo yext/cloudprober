@@ -12,7 +12,7 @@ go_library(
         "//sysvars:go_default_library",
         "//web:go_default_library",
         "@com_github_yext_glog//:go_default_library",
-        "@com_google_cloud_go//compute/metadata:go_default_library",
+        "@com_google_cloud_go_compute_metadata//:go_default_library",
     ],
 )
 
