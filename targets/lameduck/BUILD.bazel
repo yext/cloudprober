@@ -13,7 +13,7 @@ go_library(
         "//targets/rds/proto:go_default_library",
         "//targets/rtc/rtcservice:go_default_library",
         "@com_github_gogo_protobuf//proto:go_default_library",
-        "@com_google_cloud_go//compute/metadata:go_default_library",
+        "@com_google_cloud_go_compute_metadata//:go_default_library",
         "@org_golang_google_api//runtimeconfig/v1beta1:go_default_library",
     ],
 )
