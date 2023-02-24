@@ -101,6 +101,14 @@ func NewCloudproberLog(component string) (*Logger, error) {
 	return New(context.Background(), cpPrefix+"."+component)
 }
 
+// NewStdoutCloudproberLog is a constructor for the wrapped Stdout logger.
+// This will not attempt to create a cloud logger in contrast to
+// NewCloudproberLog. This is equivalent to running Cloudprober on a non
+// GCP machine.
+func NewStdoutCloudproberLog() *Logger {
+	return &Logger{}
+}
+
 // New returns a new Logger object with cloud logging client initialized if running on GCE.
 func New(ctx context.Context, logName string) (*Logger, error) {
 	l := &Logger{}
