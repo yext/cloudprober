@@ -32,7 +32,6 @@ import (
 	"sync"
 	"time"
 
-	"github.com/yext/glog"
 	"github.com/gogo/protobuf/proto"
 	"github.com/yext/cloudprober/config"
 	configpb "github.com/yext/cloudprober/config/proto"
@@ -45,6 +44,7 @@ import (
 	"github.com/yext/cloudprober/targets/lameduck"
 	rdsserver "github.com/yext/cloudprober/targets/rds/server"
 	"github.com/yext/cloudprober/targets/rtc/rtcreporter"
+	"github.com/yext/glog"
 )
 
 const (
@@ -122,13 +122,12 @@ func InitFromConfig(configFile string) error {
 	}
 
 	pr := &Prober{}
-	// Initialize sysvars module
-	l, err := logger.NewCloudproberLog(sysvarsModuleName)
-	if err != nil {
-		return err
-	}
+
+	l := logger.NewStdoutCloudproberLog()
+
 	sysvars.Init(l, nil)
 
+	var err error
 	if pr.textConfig, err = config.ParseTemplate(configFile, sysvars.Vars()); err != nil {
 		return err
 	}
