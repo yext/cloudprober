@@ -402,6 +402,14 @@ go_repository(
 )
 
 go_repository(
+    name = "com_google_cloud_go_longrunning",
+    build_file_proto_mode = "disable",
+    importpath = "cloud.google.com/go/longrunning",
+    sum = "h1:v+yFJOfKC3yZdY6ZUI933pIYdhyhV8S3NpWrXWmg7jM=",
+    version = "v0.4.1",
+)
+
+go_repository(
     name = "com_google_cloud_go_bigquery",
     importpath = "cloud.google.com/go/bigquery",
     sum = "h1:PQcPefKFdaIzjQFbiyOgAqyx8q5djaE7x9Sqe712DPA=",
