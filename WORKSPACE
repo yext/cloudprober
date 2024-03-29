@@ -426,6 +426,7 @@ go_repository(
 go_repository(
     name = "com_google_cloud_go_logging",
     importpath = "cloud.google.com/go/logging",
+    build_file_proto_mode = "disable",
     sum = "h1:Mu2Q75VBDQlW1HlBMjTX4X84UFR73G1TiLlRYc/b7tA=",
     version = "v1.4.2",
 )
