@@ -200,12 +200,12 @@ func isSSLError(err error) bool {
 		case tls.RecordHeaderError:
 			return true
 		}
-	}
 
-	// In the case of handshake errors, Go does not have a predefined
-	// typed error. So use prefix matching to catch these errors.
-	if strings.HasPrefix(err.Error(), "tls: ") {
-		return true
+		// In the case of handshake errors, Go does not have a predefined
+		// typed error. So use prefix matching to catch these errors.
+		if strings.HasPrefix(uerr.Err.Error(), "tls: ") {
+			return true
+		}
 	}
 
 	return false

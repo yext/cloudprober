@@ -20,6 +20,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"net/url"
 	"testing"
 	"time"
 
@@ -179,5 +180,23 @@ func TestProbeWithBody(t *testing.T) {
 	got = p.results[testTarget].respBodies.String()
 	if got != expected {
 		t.Errorf("response map: got=%s, expected=%s", got, expected)
+	}
+}
+
+func TestIsSSL(t *testing.T) {
+	var tests = []struct {
+		err  error
+		want bool
+	}{
+		{nil, false},
+		{&url.Error{Err: fmt.Errorf("tcp: failed to connect")}, false},
+		{&url.Error{Err: fmt.Errorf("tls: failed to verify certificate: x509: \"revoked.badssl.com\" certificate is revoked")}, true},
+	}
+
+	for _, test := range tests {
+		got := isSSLError(test.err)
+		if got != test.want {
+			t.Errorf("isSSLError check failed for error: '%s'\ngot: %v \nwanted: %v", test.err.Error(), got, test.want)
+		}
 	}
 }
