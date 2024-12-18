@@ -206,6 +206,7 @@ func isSSLError(err error) bool {
 		if strings.HasPrefix(uerr.Err.Error(), "tls: ") {
 			return true
 		}
+		fmt.Printf("Error string: '%s'", uerr.Err.Error())
 	}
 
 	return false
