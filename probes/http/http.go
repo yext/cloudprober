@@ -194,6 +194,7 @@ func isSSLError(err error) bool {
 	}
 
 	if uerr, ok := err.(*url.Error); ok {
+		fmt.Printf("URL Error string: '%s'", uerr.Err.Error())
 		switch uerr.Err.(type) {
 		case x509.CertificateInvalidError, x509.HostnameError, x509.UnknownAuthorityError:
 			return true
@@ -206,9 +207,9 @@ func isSSLError(err error) bool {
 		if strings.HasPrefix(uerr.Err.Error(), "tls: ") {
 			return true
 		}
-		fmt.Printf("Error string: '%s'", uerr.Err.Error())
 	}
 
+	fmt.Printf("Error string: '%s'", err.Error())
 	return false
 }
 
