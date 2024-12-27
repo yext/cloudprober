@@ -16,10 +16,12 @@
 package http
 
 import (
+	"bytes"
 	"context"
 	"crypto/tls"
 	"crypto/x509"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"math/rand"
 	"net"
@@ -34,6 +36,7 @@ import (
 	"github.com/yext/cloudprober/metrics"
 	configpb "github.com/yext/cloudprober/probes/http/proto"
 	"github.com/yext/cloudprober/probes/options"
+	"golang.org/x/crypto/ocsp"
 )
 
 const (
@@ -130,10 +133,10 @@ func (p *Probe) Init(name string, opts *options.Options) error {
 		DialContext:         dialer.DialContext,
 		MaxIdleConns:        256, // http.DefaultTransport.MaxIdleConns: 100.
 		TLSHandshakeTimeout: p.opts.Timeout,
-	}
-
-	if p.c.GetDisableCertValidation() {
-		transport.TLSClientConfig = &tls.Config{InsecureSkipVerify: true}
+		TLSClientConfig: &tls.Config{
+			InsecureSkipVerify:    p.c.GetDisableCertValidation(),
+			VerifyPeerCertificate: CheckForRevokedCert,
+		},
 	}
 
 	// If HTTP keep-alives are not enabled (default), disable HTTP keep-alive in
@@ -168,6 +171,55 @@ func (p *Probe) Init(name string, opts *options.Options) error {
 	p.targetsUpdateFrequency = targetsUpdateInterval.Nanoseconds() / p.opts.Interval.Nanoseconds()
 	if p.targetsUpdateFrequency == 0 {
 		p.targetsUpdateFrequency = 1
+	}
+
+	return nil
+}
+
+func CheckForRevokedCert(rawCerts [][]byte, verifiedChains [][]*x509.Certificate) error {
+	if len(rawCerts) == 0 || len(verifiedChains) == 0 || len(verifiedChains[0]) < 2 {
+		return fmt.Errorf("missing cert or issuer")
+	}
+
+	cert, err := x509.ParseCertificate(rawCerts[0])
+	if err != nil {
+		return fmt.Errorf("failed to parse leaf certificate: %v", err)
+	}
+
+	if len(cert.OCSPServer) == 0 {
+		return fmt.Errorf("no OCSP server URL found in certificate")
+	}
+
+	issuer := verifiedChains[0][1] // Second certificate in the chain is the issuer
+	ocspRequest, err := ocsp.CreateRequest(cert, issuer, nil)
+	if err != nil {
+		return fmt.Errorf("failed to create OCSP request: %v", err)
+	}
+
+	ocspURL := cert.OCSPServer[0]
+	resp, err := http.Post(ocspURL, "application/ocsp-request", bytes.NewReader(ocspRequest))
+	if err != nil {
+		return fmt.Errorf("failed to query OCSP server: %v", err)
+	}
+	defer resp.Body.Close()
+
+	if resp.StatusCode != http.StatusOK {
+		return fmt.Errorf("OCSP server returned status: %s", resp.Status)
+	}
+
+	ocspResponseData, err := io.ReadAll(resp.Body)
+	if err != nil {
+		return fmt.Errorf("failed to read OCSP response: %v", err)
+	}
+
+	ocspResponse, err := ocsp.ParseResponse(ocspResponseData, issuer)
+	if err != nil {
+		return fmt.Errorf("failed to parse OCSP response: %v", err)
+	}
+
+	// Check for Revoked Status
+	if ocspResponse.Status == ocsp.Revoked {
+		return fmt.Errorf("tls: certificate is revoked")
 	}
 
 	return nil

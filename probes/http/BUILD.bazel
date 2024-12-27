@@ -13,6 +13,7 @@ go_library(
         "//metrics:go_default_library",
         "//probes/http/proto:go_default_library",
         "//probes/options:go_default_library",
+        "@org_golang_x_crypto//ocsp:go_default_library",
     ],
 )
 
@@ -26,5 +27,6 @@ go_test(
         "//probes/options:go_default_library",
         "//targets:go_default_library",
         "@com_github_gogo_protobuf//proto:go_default_library",
+        "@org_golang_x_crypto//ocsp:go_default_library",
     ],
 )

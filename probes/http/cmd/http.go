@@ -24,13 +24,13 @@ import (
 	"time"
 
 	"flag"
-	"github.com/yext/glog"
 	"github.com/gogo/protobuf/proto"
 	"github.com/yext/cloudprober/metrics"
 	"github.com/yext/cloudprober/probes/http"
 	configpb "github.com/yext/cloudprober/probes/http/proto"
 	"github.com/yext/cloudprober/probes/options"
 	"github.com/yext/cloudprober/targets"
+	"github.com/yext/glog"
 )
 
 var (
