@@ -11,6 +11,7 @@ require (
 	github.com/miekg/dns v1.1.26
 	github.com/theothertomelliott/go-must v0.0.0-20180901182306-492b25fad7e5 // indirect
 	github.com/yext/glog v0.0.0-20210527194735-eb643387a7e2
+	golang.org/x/crypto v0.0.0-20200622213623-75b288015ac9 // indirect
 	golang.org/x/net v0.0.0-20210525063256-abc453219eb5
 	golang.org/x/oauth2 v0.0.0-20210628180205-a41e5a781914
 	golang.org/x/sys v0.0.0-20210616094352-59db8d763f22
